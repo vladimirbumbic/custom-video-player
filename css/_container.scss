@@ -19,7 +19,7 @@ body {
         padding: 10%;
 
         .container {
-            @media (max-width: 900px) {
+            @media only screen and (max-width: 900px) {
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -192,11 +192,20 @@ body {
                     overflow-y: scroll;
                     border-radius: 5px;
                     display: none;
+                    @media only screen and (min-width: 525px) and (max-width: 900px) {
+                        height: 170px;
+                    }
+                    @media only screen and (min-width: 300px) and (max-width: 525px) {
+                        height: 70px;
+                    }
                     &.active {
                         display: block;
                     }
                     &::-webkit-scrollbar {
                         width: 8px;
+                        @media only screen and (min-width: 300px) and (max-width: 525px) {
+                            width: 4px;
+                        }
                     }
                     &::-webkit-scrollbar-thumb {
                         background: $scrollbarColor;
@@ -210,6 +219,11 @@ body {
                             padding: 15px 30px;
                             display: block;
                             border-bottom: 2px solid $scrollbarColor;
+                            @media only screen and (min-width: 300px) and (max-width: 525px) {
+                                font-size: 8px;
+                                font-weight: 300;
+                                padding: 5px 10px;
+                            }
                         }
                         ul {
                             li {
@@ -219,6 +233,10 @@ body {
                                 padding: 10px 10px;
                                 display: block;
                                 font-size: 14px;
+                                @media only screen and (min-width: 300px) and (max-width: 525px) {
+                                    font-size: 8px;
+                                    padding: 5px 5px;
+                                }
                                 &:hover {
                                     background: $liHoverColor;
                                 }
@@ -231,6 +249,9 @@ body {
                                     transform: translateY(-50%);
                                     padding-right: 10px;
                                     font-size: 18px;
+                                    @media only screen and (min-width: 300px) and (max-width: 525px) {
+                                        left: 0px;
+                                    }
                                 }
                             }
                         }

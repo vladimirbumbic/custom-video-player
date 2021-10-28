@@ -57,7 +57,7 @@ body main {
     padding: 10%;
 }
 
-@media (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     body main .container {
         width: 100%;
         display: -webkit-box;
@@ -392,12 +392,30 @@ body main .container .video_player .settings {
     display: none;
 }
 
+@media only screen and (min-width: 525px) and (max-width: 900px) {
+    body main .container .video_player .settings {
+        height: 170px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings {
+        height: 70px;
+    }
+}
+
 body main .container .video_player .settings.active {
     display: block;
 }
 
 body main .container .video_player .settings::-webkit-scrollbar {
     width: 8px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings::-webkit-scrollbar {
+        width: 4px;
+    }
 }
 
 body main .container .video_player .settings::-webkit-scrollbar-thumb {
@@ -413,6 +431,14 @@ body main .container .video_player .settings .playback span {
     border-bottom: 2px solid #535353;
 }
 
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings .playback span {
+        font-size: 8px;
+        font-weight: 300;
+        padding: 5px 10px;
+    }
+}
+
 body main .container .video_player .settings .playback ul li {
     position: relative;
     width: 100%;
@@ -420,6 +446,13 @@ body main .container .video_player .settings .playback ul li {
     padding: 10px 10px;
     display: block;
     font-size: 14px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings .playback ul li {
+        font-size: 8px;
+        padding: 5px 5px;
+    }
 }
 
 body main .container .video_player .settings .playback ul li:hover {
@@ -436,5 +469,18 @@ body main .container .video_player .settings .playback ul li.active::before {
     transform: translateY(-50%);
     padding-right: 10px;
     font-size: 18px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body
+        main
+        .container
+        .video_player
+        .settings
+        .playback
+        ul
+        li.active::before {
+        left: 0px;
+    }
 }
 /*# sourceMappingURL=style.css.map */
