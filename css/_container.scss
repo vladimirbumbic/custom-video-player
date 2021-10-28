@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background: $bgColor;
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh);
+        width: 100%;
+        padding: 10%;
+
+        .container {
+            @media (max-width: 900px) {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .video_player {
+                position: relative;
+                width: 100%;
+                height: 400px;
+                overflow: hidden;
+                outline-style: solid;
+                outline-color: $outline-color;
+                outline-width: 5px;
+                border-radius: 10px;
+                @media (max-width: 900px) {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+
+                video {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+                .progressAreaTime {
+                    position: absolute;
+                    left: var(--progressT);
+                    transform: translateX(-50%);
+                    bottom: 65px;
+                    min-width: 60px;
+                    text-align: center;
+                    padding: 5px 10px;
+                    color: #fff;
+                    font-size: 14px;
+                    background: $progressAreaTimeBgColor;
+                    opacity: 0.9;
+                    border-radius: 5px;
+                    display: none;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: -40%;
+                        left: 50%;
+                        transform: translate(-45%, -45%) rotate(45deg);
+                        background: $progressAreaTimeBgColor;
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+
+                .controls {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    background: $controlsBgColor;
+                    transform: translateY(180%);
+                    transition: 0.3s;
+                    &.active {
+                        transform: translateY(0);
+                    }
+                    .progress-area {
+                        height: 5px;
+                        background: $progressAreaBgColor;
+                        cursor: pointer;
+                        .progress-bar {
+                            position: relative;
+                            background: $progressBarBgColor;
+                            height: 100%;
+                            width: 0%;
+                            cursor: pointer;
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                width: 14px;
+                                height: 14px;
+                                border-radius: 50%;
+                                right: -14px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                background: $progressBarBgColor;
+                            }
+                        }
+                    }
+                    .left-right {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: nowrap;
+                        width: 99%;
+                        height: 50px;
+                        .left,
+                        .right {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .timer {
+                                display: inline-block;
+                                font-size: 14px;
+                                color: $timerIconIInputColor;
+                                margin-left: 5px;
+                            }
+                            .icon {
+                                display: inline-flex;
+                                justify-content: center;
+                                align-items: center;
+                                text-align: center;
+                                color: $timerIconIInputColor;
+                                margin-left: 8px;
+                                margin-right: 5px;
+                                &:hover input {
+                                    display: inline-block;
+                                    width: 60px;
+                                    &::-webkit-slider-thumb {
+                                        opacity: 1;
+                                        pointer-events: auto;
+                                        transition: 0.5s;
+                                    }
+                                }
+                                i {
+                                    font-size: 26px;
+                                    color: $timerIconIInputColor;
+                                    cursor: pointer;
+                                }
+
+                                .volume {
+                                    margin-left: 5px;
+                                }
+                                input {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    width: 0px;
+                                    height: 3px;
+                                    background: $timerIconIInputColor;
+                                    color: $timerIconIInputColor;
+                                    cursor: pointer;
+                                    transition: 0.4s;
+                                    &::-webkit-slider-thumb {
+                                        -webkit-appearance: none;
+                                        appearance: none;
+                                        width: 12px;
+                                        height: 12px;
+                                        border-radius: 50%;
+                                        background: $timerIconIInputColor;
+                                        color: $timerIconIInputColor;
+                                        opacity: 0;
+                                        transition: 0.3s;
+                                    }
+                                }
+                                .settingsCircle {
+                                    font-size: 24px;
+                                    transition: 0.3s;
+                                    &.active {
+                                        transform: rotate(50deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .settings {
+                    position: absolute;
+                    right: 25px;
+                    bottom: 60px;
+                    background: $settingsBgColor;
+                    height: 180px;
+                    color: $settingsColor;
+                    text-align: center;
+                    overflow-y: scroll;
+                    border-radius: 5px;
+                    display: none;
+                    &.active {
+                        display: block;
+                    }
+                    &::-webkit-scrollbar {
+                        width: 8px;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background: $scrollbarColor;
+                        border-radius: 10px;
+                    }
+
+                    .playback {
+                        span {
+                            font-size: 14px;
+                            font-weight: 300;
+                            padding: 15px 30px;
+                            display: block;
+                            border-bottom: 2px solid $scrollbarColor;
+                        }
+                        ul {
+                            li {
+                                position: relative;
+                                width: 100%;
+                                cursor: pointer;
+                                padding: 10px 10px;
+                                display: block;
+                                font-size: 14px;
+                                &:hover {
+                                    background: $liHoverColor;
+                                }
+                                &.active::before {
+                                    content: '\e876';
+                                    font-family: 'Material Icons';
+                                    position: absolute;
+                                    left: 10px;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    padding-right: 10px;
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
