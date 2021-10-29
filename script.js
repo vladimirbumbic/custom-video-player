@@ -182,8 +182,7 @@ playback.forEach((event) => {
     event.addEventListener('click', () => {
         removeActiveClass();
         event.classList.add('active');
-        let speed = event.getAttribute('data-speed');
-        video.playbackRate = speed;
+        video.playbackRate = event.getAttribute('data-speed');
     });
 });
 

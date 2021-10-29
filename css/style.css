@@ -215,6 +215,13 @@ body main .container .video_player .controls .left-right .right .timer {
     margin-left: 5px;
 }
 
+@media only screen and (max-width: 450px) {
+    body main .container .video_player .controls .left-right .left .timer,
+    body main .container .video_player .controls .left-right .right .timer {
+        margin-left: -5px;
+    }
+}
+
 body main .container .video_player .controls .left-right .left .icon,
 body main .container .video_player .controls .left-right .right .icon {
     display: -webkit-inline-box;
@@ -254,6 +261,29 @@ body
     width: 60px;
 }
 
+@media only screen and (max-width: 420px) {
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .left
+        .icon:hover
+        input,
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .right
+        .icon:hover
+        input {
+        display: none;
+    }
+}
+
 body
     main
     .container
@@ -278,6 +308,29 @@ body
     transition: 0.5s;
 }
 
+@media only screen and (max-width: 420px) {
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .left
+        .icon:hover
+        input::-webkit-slider-thumb,
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .right
+        .icon:hover
+        input::-webkit-slider-thumb {
+        display: none;
+    }
+}
+
 body main .container .video_player .controls .left-right .left .icon i,
 body main .container .video_player .controls .left-right .right .icon i {
     font-size: 26px;
@@ -288,6 +341,29 @@ body main .container .video_player .controls .left-right .right .icon i {
 body main .container .video_player .controls .left-right .left .icon .volume,
 body main .container .video_player .controls .left-right .right .icon .volume {
     margin-left: 5px;
+}
+
+@media only screen and (max-width: 450px) {
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .left
+        .icon
+        .volume,
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .right
+        .icon
+        .volume {
+        display: none;
+    }
 }
 
 body main .container .video_player .controls .left-right .left .icon input,

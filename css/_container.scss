@@ -122,6 +122,9 @@ body {
                                 font-size: 14px;
                                 color: $timerIconIInputColor;
                                 margin-left: 5px;
+                                @media only screen and (max-width: 450px) {
+                                    margin-left: -5px;
+                                }
                             }
                             .icon {
                                 display: inline-flex;
@@ -134,10 +137,16 @@ body {
                                 &:hover input {
                                     display: inline-block;
                                     width: 60px;
+                                    @media only screen and (max-width: 420px) {
+                                        display: none;
+                                    }
                                     &::-webkit-slider-thumb {
                                         opacity: 1;
                                         pointer-events: auto;
                                         transition: 0.5s;
+                                        @media only screen and (max-width: 420px) {
+                                            display: none;
+                                        }
                                     }
                                 }
                                 i {
@@ -148,6 +157,9 @@ body {
 
                                 .volume {
                                     margin-left: 5px;
+                                    @media only screen and (max-width: 450px) {
+                                        display: none;
+                                    }
                                 }
                                 input {
                                     -webkit-appearance: none;
