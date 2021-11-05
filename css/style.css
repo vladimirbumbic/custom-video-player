@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    background: -webkit-gradient(
+        linear,
+        left bottom,
+        right top,
+        from(#d16ba5),
+        color-stop(#c777b9),
+        color-stop(#ba83ca),
+        color-stop(#aa8fd8),
+        color-stop(#9a9ae1),
+        color-stop(#8aa7ec),
+        color-stop(#79b3f4),
+        color-stop(#69bff8),
+        color-stop(#52cffe),
+        color-stop(#41dfff),
+        color-stop(#46eefa),
+        to(#5ffbf1)
+    );
+    background: linear-gradient(
+        to right top,
+        #d16ba5,
+        #c777b9,
+        #ba83ca,
+        #aa8fd8,
+        #9a9ae1,
+        #8aa7ec,
+        #79b3f4,
+        #69bff8,
+        #52cffe,
+        #41dfff,
+        #46eefa,
+        #5ffbf1
+    );
+}
+
+body main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: calc(100vh);
+    width: 100%;
+    padding: 10%;
+}
+
+@media only screen and (max-width: 900px) {
+    body main .container {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+body main .container .video_player {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    outline-style: solid;
+    outline-color: #003153;
+    outline-width: 5px;
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    body main .container .video_player {
+        width: 100%;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+}
+
+body main .container .video_player video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+body main .container .video_player .progressAreaTime {
+    position: absolute;
+    left: var(--progressT);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 65px;
+    min-width: 60px;
+    text-align: center;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 14px;
+    background: #002333;
+    opacity: 0.9;
+    border-radius: 5px;
+    display: none;
+}
+
+body main .container .video_player .progressAreaTime::before {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: 50%;
+    -webkit-transform: translate(-45%, -45%) rotate(45deg);
+    transform: translate(-45%, -45%) rotate(45deg);
+    background: #002333;
+    width: 14px;
+    height: 14px;
+}
+
+body main .container .video_player .controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-transform: translateY(180%);
+    transform: translateY(180%);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+body main .container .video_player .controls.active {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+body main .container .video_player .controls .progress-area {
+    height: 5px;
+    background: #f0f0f0;
+    cursor: pointer;
+}
+
+body main .container .video_player .controls .progress-area .progress-bar {
+    position: relative;
+    background: #ffae00;
+    height: 100%;
+    width: 0%;
+    cursor: pointer;
+}
+
+body
+    main
+    .container
+    .video_player
+    .controls
+    .progress-area
+    .progress-bar::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    right: -14px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: #ffae00;
+}
+
+body main .container .video_player .controls .left-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    width: 99%;
+    height: 50px;
+}
+
+body main .container .video_player .controls .left-right .left,
+body main .container .video_player .controls .left-right .right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+body main .container .video_player .controls .left-right .left .timer,
+body main .container .video_player .controls .left-right .right .timer {
+    display: inline-block;
+    font-size: 14px;
+    color: #fff;
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 450px) {
+    body main .container .video_player .controls .left-right .left .timer,
+    body main .container .video_player .controls .left-right .right .timer {
+        margin-left: -5px;
+    }
+}
+
+body main .container .video_player .controls .left-right .left .icon,
+body main .container .video_player .controls .left-right .right .icon {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    margin-left: 8px;
+    margin-right: 5px;
+}
+
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .left
+    .icon:hover
+    input,
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .right
+    .icon:hover
+    input {
+    display: inline-block;
+    width: 60px;
+}
+
+@media only screen and (max-width: 420px) {
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .left
+        .icon:hover
+        input,
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .right
+        .icon:hover
+        input {
+        display: none;
+    }
+}
+
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .left
+    .icon:hover
+    input::-webkit-slider-thumb,
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .right
+    .icon:hover
+    input::-webkit-slider-thumb {
+    opacity: 1;
+    pointer-events: auto;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+@media only screen and (max-width: 420px) {
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .left
+        .icon:hover
+        input::-webkit-slider-thumb,
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .right
+        .icon:hover
+        input::-webkit-slider-thumb {
+        display: none;
+    }
+}
+
+body main .container .video_player .controls .left-right .left .icon i,
+body main .container .video_player .controls .left-right .right .icon i {
+    font-size: 26px;
+    color: #fff;
+    cursor: pointer;
+}
+
+body main .container .video_player .controls .left-right .left .icon .volume,
+body main .container .video_player .controls .left-right .right .icon .volume {
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 450px) {
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .left
+        .icon
+        .volume,
+    body
+        main
+        .container
+        .video_player
+        .controls
+        .left-right
+        .right
+        .icon
+        .volume {
+        display: none;
+    }
+}
+
+body main .container .video_player .controls .left-right .left .icon input,
+body main .container .video_player .controls .left-right .right .icon input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 0px;
+    height: 3px;
+    background: #fff;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .left
+    .icon
+    input::-webkit-slider-thumb,
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .right
+    .icon
+    input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    color: #fff;
+    opacity: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .left
+    .icon
+    .settingsCircle,
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .right
+    .icon
+    .settingsCircle {
+    font-size: 24px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .left
+    .icon
+    .settingsCircle.active,
+body
+    main
+    .container
+    .video_player
+    .controls
+    .left-right
+    .right
+    .icon
+    .settingsCircle.active {
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+}
+
+body main .container .video_player .settings {
+    position: absolute;
+    right: 25px;
+    bottom: 60px;
+    background: lightgray;
+    height: 180px;
+    color: gray;
+    text-align: center;
+    overflow-y: scroll;
+    border-radius: 5px;
+    display: none;
+}
+
+@media only screen and (min-width: 525px) and (max-width: 900px) {
+    body main .container .video_player .settings {
+        height: 170px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings {
+        height: 70px;
+    }
+}
+
+body main .container .video_player .settings.active {
+    display: block;
+}
+
+body main .container .video_player .settings::-webkit-scrollbar {
+    width: 8px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings::-webkit-scrollbar {
+        width: 4px;
+    }
+}
+
+body main .container .video_player .settings::-webkit-scrollbar-thumb {
+    background: #535353;
+    border-radius: 10px;
+}
+
+body main .container .video_player .settings .playback span {
+    font-size: 14px;
+    font-weight: 300;
+    padding: 15px 30px;
+    display: block;
+    border-bottom: 2px solid #535353;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings .playback span {
+        font-size: 8px;
+        font-weight: 300;
+        padding: 5px 10px;
+    }
+}
+
+body main .container .video_player .settings .playback ul li {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 10px;
+    display: block;
+    font-size: 14px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body main .container .video_player .settings .playback ul li {
+        font-size: 8px;
+        padding: 5px 5px;
+    }
+}
+
+body main .container .video_player .settings .playback ul li:hover {
+    background: rgba(28, 28, 28, 0.8);
+}
+
+body main .container .video_player .settings .playback ul li.active::before {
+    content: '\e876';
+    font-family: 'Material Icons';
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding-right: 10px;
+    font-size: 18px;
+}
+
+@media only screen and (min-width: 300px) and (max-width: 525px) {
+    body
+        main
+        .container
+        .video_player
+        .settings
+        .playback
+        ul
+        li.active::before {
+        left: 0px;
+    }
+}
+/*# sourceMappingURL=style.css.map */
